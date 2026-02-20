@@ -1,4 +1,4 @@
-<h1 align="center">🎮 Game-Themed Portfolio</h1>
+<h1 align="center">🎮 Amongus-Themed Portfolio</h1>
 
 <p align="center">
   <b>Interactive Single Page Portfolio • Game UI • Fast • Responsive</b>
