@@ -1,4 +1,4 @@
-<h1 align="center">🎮 Amongus-Themed Portfolio</h1>
+<h1 align="center">🎮 Game-Themed Portfolio</h1>
 
 <p align="center">
   <b>Interactive Single Page Portfolio • Game UI • Fast • Responsive</b>
@@ -40,7 +40,7 @@ Contact | Emergency Meeting 🚨
 
 </div>
 
-Users navigate without page reload → **Single Page Application (SPA)**.
+Users navigate without page reload → <b>Single Page Application (SPA)</b>.
 
 ---
 
@@ -88,20 +88,6 @@ F --> G[Popup Contact System]
 
 ---
 
-## 🖼️ Screenshots
-
-<p align="center">
-  <img src="assets/home.png" width="45%"/>
-  <img src="assets/tasks.png" width="45%"/>
-</p>
-
-<p align="center">
-  <img src="assets/missions.png" width="45%"/>
-  <img src="assets/contact.png" width="45%"/>
-</p>
-
----
-
 ## ⚡ Performance
 
 <div align="center">
@@ -113,14 +99,14 @@ F --> G[Popup Contact System]
 
 </div>
 
-Loads in **under 1 second**.
+Loads in <b>under 1 second</b>.
 
 ---
 
 ## 🔊 Audio System
 
 - Background music with fade-in  
-- Hover beep generated using **Web Audio API**  
+- Hover beep generated using <b>Web Audio API</b>  
 - Audio starts only after user interaction  
 
 ---
