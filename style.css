@@ -1,0 +1,364 @@
+/* ============================================================
+   AMONG US PORTFOLIO — STYLES
+   Designed to be simple, clean, and beginner-friendly.
+   ============================================================ */
+
+/* ── SETTINGS & COLORS ───────────────────────────────────── */
+:root {
+    /* Among Us Colors */
+    --red: #C51111;
+    --cyan: #37FFD1;
+    --pink: #ED54BA;
+    --black: #1a1a1a;
+    --space-bg: #000000;
+
+    /* Glow Effects */
+    --glow-pink: 0 0 10px #ED54BA, 0 0 20px #ED54BA;
+    --glow-cyan: 0 0 10px #37FFD1, 0 0 20px #37FFD1;
+}
+
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    /* Use a common mono font */
+}
+
+body {
+    background-color: var(--space-bg);
+    color: white;
+    overflow: hidden;
+    /* Prevent scrolling outside the ship */
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ── BACKGROUND STARS ────────────────────────────────────── */
+.stars-container {
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+        radial-gradient(1px 1px at 100px 150px, #fff, transparent),
+        radial-gradient(2px 2px at 200px 50px, #fff, transparent);
+    background-size: 300px 300px;
+    opacity: 0.5;
+    z-index: -1;
+    /* Bottom layer */
+    animation: backgroundDrift 60s linear infinite;
+}
+
+@keyframes backgroundDrift {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-300px);
+    }
+}
+
+/* ── LAYERING & CLICKABILITY ─────────────────────────────── */
+
+/* GIF Container: sits above stars but below text */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.8);
+    /* Persistent glow */
+    animation: twinkle var(--duration, 3s) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 1);
+    }
+}
+
+.bg-crewmates {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    /* Let clicks pass through to GIFs specifically */
+}
+
+/* GIFs are now tiny, subtle, and strictly at the edges to keep the viewport clean */
+.bg-gif {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 0.2;
+    /* Barely there until you hover */
+    transition: 0.4s;
+    filter: grayscale(30%);
+    /* Subtle desaturation */
+}
+
+/* Perfect centering for the massive centerpiece */
+.hero-backdrop {
+    transform: translate(-50%, -50%) !important;
+    z-index: 1;
+    /* Stay behind content (which is z-index 2) */
+}
+
+.hero-backdrop:hover {
+    transform: translate(-50%, -50%) scale(1.05) !important;
+}
+
+.bg-gif:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* Ensure the tiny GIF images actually fit their 25px container */
+.bg-gif img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Sections: render above GIFs but let clicks through empty space */
+.view {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    /* Maximum breathing room */
+}
+
+/* Make sure buttons/text inside sections ARE clickable */
+.view * {
+    pointer-events: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ── INTRO SCREEN ────────────────────────────────────────── */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: black;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.shhh-gif {
+    width: 250px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.shhh-text {
+    font-size: 1.2rem;
+    color: var(--pink);
+    text-shadow: var(--glow-pink);
+    text-align: center;
+    max-width: 600px;
+}
+
+/* ── HERO TEXT & HEADERS ─────────────────────────────────── */
+h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: var(--glow-pink);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--cyan);
+    text-shadow: var(--glow-cyan);
+    margin-bottom: 20px;
+}
+
+.impostor-text {
+    color: var(--red);
+    font-weight: bold;
+}
+
+/* ── MISSION CARDS ───────────────────────────────────────── */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin-top: 30px;
+}
+
+.mission-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mission-card:hover {
+    border-color: var(--cyan);
+    background: rgba(55, 255, 209, 0.1);
+    transform: translateY(-5px);
+}
+
+.status-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    background: var(--cyan);
+    color: black;
+}
+
+/* ── NAVIGATION ──────────────────────────────────────────── */
+.lobby-nav {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.lobby-nav button {
+    background: #222;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.lobby-nav button:hover {
+    background: white;
+    color: black;
+}
+
+.emergency-btn {
+    border-color: var(--red) !important;
+    color: var(--red) !important;
+}
+
+/* ── BASIC ANIMATIONS ────────────────────────────────────── */
+.anim-sleep {
+    animation: simpleFloat 4s ease-in-out infinite;
+}
+
+.anim-wave {
+    animation: simpleTilt 3s ease-in-out infinite;
+}
+
+.anim-jump {
+    animation: simpleJump 1.5s ease-in-out infinite;
+}
+
+@keyframes simpleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes simpleTilt {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes simpleJump {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+/* ── EMERGENCY MEETING STYLING ──────────────────────────── */
+.meeting-card {
+    background: #111;
+    border: 5px solid var(--red);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(197, 17, 17, 0.4);
+}
+
+.emergency-text {
+    font-size: 3.5rem;
+    color: var(--red);
+    text-shadow: 0 0 15px var(--red);
+    margin-bottom: 30px;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.contact-btn {
+    display: block;
+    width: 280px;
+    padding: 15px 20px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border: 2px solid white;
+    text-align: center;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.contact-btn:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 15px white;
+    transform: scale(1.05);
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmalya Kumar Mohanty | Crewmate Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/vcr-osd-mono" rel="stylesheet">
+</head>
+
+<body class="among-us-theme">
+
+    <!-- Background Music (plays after intro) -->
+    <audio id="bg-music" loop preload="auto" src="bg-music.m4a"></audio>
+
+    <!-- Intro SHHH! Screen -->
+    <div id="intro-screen" class="overlay" style="cursor:pointer">
+        <div class="shhh-container">
+            <img src="amongus-amandarling.gif" alt="Among Us" class="shhh-gif">
+            <blockquote class="shhh-text pink-text">
+                "You steer the ship the best way you know. Sometimes it's smooth. Sometimes you hit the rocks."
+                <footer class="shhh-author">— Tony Soprano</footer>
+            </blockquote>
+            <p class="shhh-sub">Loading crewmate data...</p>
+            <p class="click-to-enter">▶ CLICK ANYWHERE TO ENTER ◀</p>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main id="main-lobby" class="hidden">
+        <div class="stars-container"></div>
+
+        <!-- Navigation Menu -->
+        <nav class="lobby-nav">
+            <button onclick="showSection('home')">HOME</button>
+            <button onclick="showSection('tasks')">TASKS (SKILLS)</button>
+            <button onclick="showSection('missions')">MISSIONS (PROJECTS)</button>
+            <button onclick="showSection('admin')">ADMIN (EXP/EDU)</button>
+            <button class="emergency-btn" onclick="triggerEmergency()">EMERGENCY MEETING</button>
+        </nav>
+
+        <!-- Background GIFs — Immersive Fleet (110px) + Gigantic Hero (550px) -->
+        <div class="bg-crewmates">
+            <!-- Gigantic Hero Backdrop: Perfectly Centered behind name -->
+            <div class="bg-gif anim-wave hero-backdrop" style="--x:50%;--y:50%;--size:550px"
+                onclick="window.open('https://github.com/nirmalyamohanty','_blank')">
+                <img src="new4.gif" alt="Hero Backdrop">
+            </div>
+
+            <!-- Email Fleet (7 Others / 110px) -->
+            <div class="bg-gif anim-sleep" style="--x:5%;--y:10%;--size:110px"
+                onclick="window.open('mailto:sonumohanty28512@gmail.com','_blank')"> <img src="among-us.gif"
+                    alt="Email"></div>
+            <div class="bg-gif anim-wave" style="--x:10%;--y:85%;--size:110px"
+                onclick="window.open('mailto:sonumohanty28512@gmail.com','_blank')"> <img src="among-us-sus.gif"
+                    alt="Email"></div>
+            <div class="bg-gif anim-shake" style="--x:85%;--y:70%;--size:110px"
+                onclick="window.open('mailto:sonumohanty28512@gmail.com','_blank')"> <img
+                    src="among-us-personajes-among-us.gif" alt="Email"></div>
+            <div class="bg-gif anim-wiggle" style="--x:5%;--y:60%;--size:110px"
+                onclick="window.open('mailto:sonumohanty28512@gmail.com','_blank')"> <img src="new2.gif" alt="Email">
+            </div>
+            <div class="bg-gif anim-reach" style="--x:45%;--y:75%;--size:110px"
+                onclick="window.open('mailto:sonumohanty28512@gmail.com','_blank')"> <img src="among-us (2).gif"
+                    alt="Email"></div>
+            <div class="bg-gif anim-peek" style="--x:90%;--y:20%;--size:110px"
+                onclick="window.open('mailto:sonumohanty28512@gmail.com','_blank')"> <img
+                    src="amongus-amandarling (1).gif" alt="Email"></div>
+
+            <!-- LinkedIn Fleet (7 Members / 110px) -->
+            <div class="bg-gif anim-jump" style="--x:82%;--y:8%;--size:110px"
+                onclick="window.open('https://www.linkedin.com/in/nirmalya-kumar-mohanty-57bb63356/','_blank')"> <img
+                    src="among-us-among-us-sus.gif" alt="LinkedIn"></div>
+            <div class="bg-gif anim-spin" style="--x:5%;--y:40%;--size:110px"
+                onclick="window.open('https://www.linkedin.com/in/nirmalya-kumar-mohanty-57bb63356/','_blank')"> <img
+                    src="not-me.gif" alt="LinkedIn"></div>
+            <div class="bg-gif anim-nod" style="--x:88%;--y:45%;--size:110px"
+                onclick="window.open('https://www.linkedin.com/in/nirmalya-kumar-mohanty-57bb63356/','_blank')"> <img
+                    src="new.gif" alt="LinkedIn"></div>
+            <div class="bg-gif anim-tumble" style="--x:15%;--y:80%;--size:110px"
+                onclick="window.open('https://www.linkedin.com/in/nirmalya-kumar-mohanty-57bb63356/','_blank')"> <img
+                    src="among-us (1).gif" alt="LinkedIn"></div>
+            <div class="bg-gif anim-strafe" style="--x:80%;--y:90%;--size:110px"
+                onclick="window.open('https://www.linkedin.com/in/nirmalya-kumar-mohanty-57bb63356/','_blank')"> <img
+                    src="sus-among-us.gif" alt="LinkedIn"></div>
+            <div class="bg-gif anim-drift" style="--x:65%;--y:5%;--size:110px"
+                onclick="window.open('https://www.linkedin.com/in/nirmalya-kumar-mohanty-57bb63356/','_blank')"> <img
+                    src="new3.gif" alt="LinkedIn"></div>
+            <div class="bg-gif anim-jump" style="--x:60%;--y:80%;--size:110px"
+                onclick="window.open('https://www.linkedin.com/in/nirmalya-kumar-mohanty-57bb63356/','_blank')"> <img
+                    src="new5.gif" alt="LinkedIn"></div>
+        </div>
+
+        <!-- Sections -->
+        <section id="home" class="view">
+            <div class="character-display">
+                <!-- Cool black crewmate - main hero character -->
+                <div class="crewmate black floating" id="hero-crewmate">
+                    <div class="visor"></div>
+                    <div class="leg left"></div>
+                    <div class="leg right"></div>
+                </div>
+                <div class="identity-tag">
+                    <p>There is <span class="impostor-text">1 Developer</span> among us.</p>
+                    <h1>NIRMALYA KUMAR MOHANTY</h1>
+                    <p class="role">Computer Science Crewmate | AI & Backend Explorer</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tasks" class="view hidden">
+            <div class="task-tablet">
+                <h2 class="tablet-header">TOTAL TASKS COMPLETED</h2>
+                <div class="task-list">
+                    <div class="task-item">
+                        <div class="task-check">✔</div>
+                        <div class="task-name">Calibrate Languages (Python, Java, JavaScript)</div>
+                    </div>
+                    <div class="task-item">
+                        <div class="task-check">✔</div>
+                        <div class="task-name">Submit AI/ML Fundamentals</div>
+                    </div>
+                    <div class="task-item">
+                        <div class="task-check">✔</div>
+                        <div class="task-name">Fix Wiring (Node.js, Express, REST APIs)</div>
+                    </div>
+                    <div class="task-item">
+                        <div class="task-check">✔</div>
+                        <div class="task-name">Clear O2 Filter (Pandas, NumPy, Matplotlib)</div>
+                    </div>
+                    <div class="task-item">
+                        <div class="task-check">✔</div>
+                        <div class="task-name">Unlock Manifolds (Data Structures, Algorithms)</div>
+                    </div>
+                    <div class="task-item">
+                        <div class="task-check">✔</div>
+                        <div class="task-name">Sync Databases (MySQL, MongoDB)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="missions" class="view hidden">
+            <h2 class="section-title">ACTIVE MISSIONS</h2>
+            <div class="mission-grid">
+                <!-- Phyzics -->
+                <div class="mission-card" onclick="window.open('https://github.com/nirmalyamohanty/phyzics', '_blank')">
+                    <div class="mission-icon">🔭</div>
+                    <h3>Mission: Phyzics</h3>
+                    <p>Interactive simulations for core physics formulas. Pure Vanilla JS.</p>
+                    <span class="status-badge complete">COMPLETE</span>
+                </div>
+                <!-- RedFitChat -->
+                <div class="mission-card"
+                    onclick="window.open('https://github.com/nirmalyamohanty/redfitchat', '_blank')">
+                    <div class="mission-icon">🔒</div>
+                    <h3>Mission: RedFitChat</h3>
+                    <p>Privacy-first anonymous chat with Google OAuth & Socket.io.</p>
+                    <span class="status-badge complete">COMPLETE</span>
+                </div>
+                <!-- HemoSense -->
+                <div class="mission-card"
+                    onclick="window.open('https://github.com/nirmalyamohanty/Project-HemoSenseV1', '_blank')">
+                    <div class="mission-icon">🩸</div>
+                    <h3>Mission: HemoSense</h3>
+                    <p>AI-powered blood report analysis with LLM fallback layers.</p>
+                    <span class="status-badge complete">COMPLETE</span>
+                </div>
+                <!-- WeatherNow -->
+                <div class="mission-card"
+                    onclick="window.open('https://github.com/nirmalyamohanty/weather-predictor', '_blank')">
+                    <div class="mission-icon">🌦️</div>
+                    <h3>Mission: WeatherNow</h3>
+                    <p>Real-time weather via live GPS location. Open-Meteo API — no key needed. Glassmorphism UI with
+                        wind, temp &amp; conditions.</p>
+                    <span class="status-badge complete">COMPLETE</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="view hidden">
+            <div class="admin-panel">
+                <div class="record">
+                    <h3>CREW LOGS (EXPERIENCE)</h3>
+                    <p><strong>AI & Data Analytics Intern</strong> @ Shell India</p>
+                    <p>Trained ML models for energy wastage detection. (85% Accuracy)</p>
+                </div>
+                <hr>
+                <div class="record">
+                    <h3>ACADEMY STATUS (EDUCATION)</h3>
+                    <p><strong>B.Tech CSE</strong> @ ITER, Bhubaneswar (2023-2027)</p>
+                    <p>Current 3rd Year Explorer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Meeting Overlay -->
+        <div id="emergency-overlay" class="overlay hidden">
+            <div class="meeting-card">
+                <h1 class="emergency-text">EMERGENCY MEETING</h1>
+                <div class="contact-links">
+                    <a href="mailto:sonumohanty28512@gmail.com" class="contact-btn">SEND EMAIL</a>
+                    <a href="https://www.linkedin.com" class="contact-btn">LINKEDIN</a>
+                    <a href="#" class="contact-btn" onclick="closeEmergency()">BACK TO LOBBY</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
